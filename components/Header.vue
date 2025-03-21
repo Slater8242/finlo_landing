@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const show = ref(false);
+const menu = ref(false);
 
 const toggleShow = ()=>{
   show.value = !show.value
@@ -21,8 +22,8 @@ const services = [
       <a href="#" class="logo">
         <SvgoLogo style="width: 164px; height: 45px; color: #261FB3;"/>
       </a>
-      <nav>
-        <ul class="nav">
+      <nav class="nav" v-if="menu">
+        <ul class="nav-list">
           <li><a href="#about" class="nav-item">Sākums</a></li>
           <li class="services nav-item" @click="toggleShow">
             <span>Pakalpojumi</span>
@@ -56,65 +57,77 @@ const services = [
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.logo{
-  cursor: pointer;
-}
+@media only screen and (min-width: 1280px){
+  .header{
+    position: sticky;
+    top: 0;
+    padding: 20px 0;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
-.nav {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.nav a {
-  text-decoration: none;
-  color: #333;
-  /* font-weight: bold; */
-  transition: 0.3s;
-}
-
-.nav-item:hover {
-  color: var(--primary-color);
-}
-
-.services{
-  position: relative;
-  span{
+  .logo{
     cursor: pointer;
   }
-}
 
-.service-list{
-  position: absolute;
-  width: 470px;
-  margin-top: 10px;
-  padding: 20px;
-  background-color: white;
-  font-size: 15px;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 15px 10px;
-  /* border: 1px solid black; */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
-  border-radius: 10px;
-  list-style: none;
-}
+  .nav-list{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
 
-.service-item{
-  display: flex;
-  align-items: center;
-  column-gap: 15px;
-  padding: 5px 10px;
-  border-radius: 10px;
-}
+  .nav a {
+    text-decoration: none;
+    color: #333;
+    /* font-weight: bold; */
+    transition: 0.3s;
+  }
 
-.service-item:hover{
-  background-color: rgba(0, 0, 0, .1);
+  .nav-item:hover {
+    color: var(--primary-color);
+  }
+
+  .services{
+    position: relative;
+    span{
+      cursor: pointer;
+    }
+  }
+
+  .service-list{
+    position: absolute;
+    width: 470px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: white;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px 10px;
+    /* border: 1px solid black; */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    list-style: none;
+  }
+
+  .service-item{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+
+  .service-item:hover{
+    background-color: rgba(0, 0, 0, .1);
+  }
 }
 </style>

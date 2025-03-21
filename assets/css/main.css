@@ -13,7 +13,14 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
-.container{
-  max-width: 900px;
-  margin: 0 auto;
+.container {
+  width: 100%; /* Контейнер растягивается на всю ширину */
+  padding: 0 15px; /* Отступы для удобства */
+}
+
+@media only screen and (min-width: 1280px){
+  .container{
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
