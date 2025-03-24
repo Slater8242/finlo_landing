@@ -14,13 +14,12 @@ body{
 }
 
 .container {
-  width: 100%; /* Контейнер растягивается на всю ширину */
-  padding: 0 15px; /* Отступы для удобства */
+  width: 90%; /* Контейнер растягивается на всю ширину */
+  margin: 0 auto;
 }
 
-@media only screen and (min-width: 1280px){
+@media only screen and (min-width: 1024px){
   .container{
     max-width: 900px;
-    margin: 0 auto;
   }
 }

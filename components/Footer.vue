@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Logo from "@/assets/icons/logo.svg"
-
 const services = [
   {title: "Hipotekārais kredīts", icon:"uil:home-alt"},
   {title: "Biznesa attīstībai", icon:"uil:suitcase"},
@@ -14,18 +12,18 @@ const services = [
 <template>
   <footer>
     <div class="container">
-      <Logo style="width: 150px; height: 150px; opacity: 0.5" />
+      <SvgoLogo class="logo"/>
       <div class="socials">
         <span>Sociālie tīkli</span>
         <div class="links">
           <NuxtLink>
-            <Icon name="uil:twitter" size="large" />
+            <Icon name="uil:twitter" class="social-icon"/>
           </NuxtLink>
           <NuxtLink>
-            <Icon name="uil:facebook" size="large" />
+            <Icon name="uil:facebook" class="social-icon"/>
           </NuxtLink>
           <NuxtLink>
-            <Icon name="uil:linkedin" size="large" />
+            <Icon name="uil:linkedin" class="social-icon"/>
           </NuxtLink>
         </div>
       </div>
@@ -61,13 +59,21 @@ const services = [
 footer {
   background-color: #3A405A;
   color: white;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 30px;
+}
+
+.logo{
+  width: 120px;
+  height: 40px;
+  opacity: 0.5
 }
 
 .links{
@@ -79,6 +85,11 @@ footer {
 
 .links span{
   cursor: pointer;
+}
+
+.social-icon{
+  width: 25px;
+  height: 25px;
 }
 
 :where(.i-uil\:twitter):hover{
@@ -96,7 +107,9 @@ footer {
 
 .nav-bar{
   display: flex;
-  column-gap: 20px;
+  text-align: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .list-style {
@@ -115,7 +128,27 @@ footer {
   letter-spacing: 0.3px;
 }
 
- .nav-bar a:hover{
+.nav-bar a:hover{
   opacity: 0.5;
+}
+
+@media only screen and (min-width: 1024px){
+  footer{
+    padding: 40px 0;
+  }
+
+  .container, .nav-bar{
+    flex-direction: row;
+  }
+
+  .nav-bar{
+    text-align: left;
+    gap: 30px;
+  }
+
+  .logo{
+    width: 150px;
+    height: 50px;
+  }
 }
 </style>

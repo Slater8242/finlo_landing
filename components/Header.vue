@@ -19,10 +19,12 @@ const services = [
 <template>
   <header class="header">
     <div class="navbar container">
-      <a href="#" class="logo">
-        <SvgoLogo style="width: 164px; height: 45px; color: #261FB3;"/>
+      <a href="#">
+        <SvgoLogo class="logo"/>
       </a>
-      <nav class="nav" v-if="menu">
+      <Icon class="menu-button" name="ic:round-menu" style="width: 35px; height: 35px;" @click="menu = !menu"/>
+      <nav :class="[menu ? 'menu-open' : 'menu-closed', 'nav']">
+        <Icon name="ri:close-large-line"  class="close-button" @click="menu=!menu"/>
         <ul class="nav-list">
           <li><a href="#about" class="nav-item">Sākums</a></li>
           <li class="services nav-item" @click="toggleShow">
@@ -53,46 +55,102 @@ const services = [
   top: 0;
   padding: 20px 0;
   z-index: 5;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-@media only screen and (min-width: 1280px){
-  .header{
-    position: sticky;
-    top: 0;
-    padding: 20px 0;
-    z-index: 5;
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+.menu-closed{
+  display: none;
+}
 
-  .navbar{
+.menu-open{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+}
+
+.nav ul{
+  list-style-type: none;
+}
+
+.nav-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  gap: 20px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.close-button{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.logo{
+  width: 120px;
+  height: 30px;
+  color: #261FB3;
+  cursor: pointer;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  /* font-weight: bold; */
+  transition: 0.3s;
+}
+
+.service-item{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.service-item:hover{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+@media only screen and (min-width: 1024px){
+  .nav{
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 
-  .logo{
-    cursor: pointer;
-  }
-
   .nav-list{
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    flex-direction: row;
+    margin: 0;
   }
 
-  .nav a {
-    text-decoration: none;
-    color: #333;
-    /* font-weight: bold; */
-    transition: 0.3s;
+  .menu-button, .close-button{
+    display: none;
   }
 
   .nav-item:hover {
     color: var(--primary-color);
+  }
+
+  .logo{
+    width: 164px;
+    height: 45px;
   }
 
   .services{
@@ -115,19 +173,6 @@ const services = [
     /* border: 1px solid black; */
     box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
     border-radius: 10px;
-    list-style: none;
-  }
-
-  .service-item{
-    display: flex;
-    align-items: center;
-    column-gap: 15px;
-    padding: 5px 10px;
-    border-radius: 10px;
-  }
-
-  .service-item:hover{
-    background-color: rgba(0, 0, 0, .1);
   }
 }
 </style>
