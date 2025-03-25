@@ -6,14 +6,6 @@ const slide = {
   description: "Aizdevums ar nekustamā īpašuma ķīlas nodrošinājumu. Īpašuma iegādei, esoša aizdevuma pārkreditācijai vai esoša īpašuma ieķīlāšana.",
   link: "#",
 };
-
-const carouselConfig = {
-  // autoplay: 5000,
-  height: 400,
-  itemsToShow: 3,
-  gap: 20,
-  wrapAround: true,
-};
 </script>
 
 <template>
@@ -23,18 +15,18 @@ const carouselConfig = {
         <div class="hero-content">
           <div class="hero-text">
             <h1>
-              Mūsdienīga pieeja <br />
+              Mūsdienīga pieeja <br/>
               Aizdevumu izsniegšanai
             </h1>
             <p>
               Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
               īpašuma nodrošinājumu jeb hipotekārais kredīts.
-              <br />
+              <br/>
               Izprotot klientu vēlmes un vajadzības, esam izstrādājuši
               pieteikšanās un kredīta izvērtēšanas procedūru pēc iespējas ērtāku
               un klientam piemērotāku.
             </p>
-            <Button label="Pieteikties" />
+            <Button label="Pieteikties" style="margin-top: 20px"/>
           </div>
           <div class="image">
             <img src="/assets/images/hero-image.png" alt="">
@@ -48,7 +40,7 @@ const carouselConfig = {
         <h2>Our Features</h2>
         <div class="feature-grid">
           <div class="feature-card" v-for="n in 4">
-            <Icon name="uil:clock" class="icon" />
+            <Icon name="uil:clock" class="icon"/>
             <p>Request Appointment</p>
           </div>
         </div>
@@ -56,31 +48,48 @@ const carouselConfig = {
       </div>
     </section>
 
+    <section class="text-photo">
+      <div class="container" style="display: flex; max-width: 1200px">
+        <div class="photo">
+          <img src="/assets/images/03.jpg" alt="image" style="width: 500px">
+        </div>
+        <div class="text" style="text-align: left; margin-left: 60px">
+          <div class="title">
+            <h2 style="font-size: 50px;">
+              Dedicated to Your
+              <br>
+              Health and Wellness
+            </h2>
+          </div>
+          <p class="description" style="margin-top: 30px; margin-bottom: 30px; color: #6B6B6B;">
+            At Mediweb, our mission is to provide exceptional healthcare services with a focus on patient-centered care.
+            We are dedicated to improving the health and well-being of our community through.
+          </p>
+          <div class="qualities" style="display: flex; gap: 20px;">
+            <div class="quality" v-for="n in 2" :key="n">
+              <div class="single-quality" v-for="n in 3" :key="n" style="display: flex; align-items: center;">
+                <Icon name="uil:check" style="font-size: 30px; color: #6A47ED"/>
+                <span style="font-size: 18px">Comprehensive Care Services</span>
+              </div>
+            </div>
+          </div>
+          <Button label="Pieteikties" styling="style-2" style="margin-top: 20px"/>
+        </div>
+      </div>
+    </section>
+
     <section class="loan-types">
       <div class="container">
-        <Carousel v-bind="carouselConfig">
-          <Slide v-for="n in 5" :key="slide.id">
+        <Carousel>
+          <swiper-slide v-for="n in 10" :key="n">
             <div class="carousel-slide">
               <Icon :name="slide.icon" style="width: 60px; height: 60px"/>
               <p><strong>{{ slide.title }}</strong></p>
               <span>{{ slide.description }}</span>
               <a href="#">Learn more</a>
             </div>
-          </Slide>
-          <template #addons>
-            <Pagination />
-          </template>
+          </swiper-slide>
         </Carousel>
-      </div>
-    </section>
-
-    <section class="about">
-      <div class="container">
-        <h2>Why Choose Us?</h2>
-        <p>
-          We provide seamless financial services with top-tier security and
-          convenience.
-        </p>
       </div>
     </section>
 
@@ -94,7 +103,7 @@ const carouselConfig = {
 </template>
 
 <style scoped>
-a{
+a {
   text-decoration: none;
 }
 
@@ -103,6 +112,7 @@ a{
   color: #fff;
   font-size: 30px;
   background-color: #625efd;
+
   a {
     background-color: #fff;
     padding: 10px 15px;
@@ -117,18 +127,6 @@ a{
   text-align: center;
 }
 
-.cta-button {
-  padding: 12px 24px;
-  border: none;
-  background: #007bff;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
 .hero {
   position: relative;
   padding: 35px 15px;
@@ -136,7 +134,7 @@ a{
   color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 0;
-  height: 710px;
+  height: 709px;
 }
 
 .hero-content {
@@ -146,9 +144,10 @@ a{
   flex-direction: column;
 }
 
-.about,
 .features,
-.contact, .loan-types {
+.contact,
+.loan-types,
+.text-photo{
   position: relative;
   margin-top: 30px;
   padding: 15px 15px;
@@ -204,10 +203,6 @@ a{
   text-align: center;
 }
 
-.contact-card {
-  background-color: rgba(38, 31, 179, 0.5);
-}
-
 @media only screen and (min-width: 768px) {
   .feature-grid {
     grid-template-columns: auto auto;
@@ -215,20 +210,20 @@ a{
 }
 
 @media only screen and (min-width: 1024px) {
-  .hero .container{
+  .hero .container {
     max-width: 1300px;
   }
 
-  .hero-content{
+  .hero-content {
     flex-direction: row;
   }
 
-  .hero-text{
-    h1{
+  .hero-text {
+    h1 {
       font-size: 50px;
     }
 
-    p{
+    p {
       font-size: 25px;
     }
   }
@@ -260,15 +255,16 @@ a{
     text-align: left;
     gap: 20px;
     height: 350px;
-    
-    a{
+    width: 280px;
+    cursor: grab;
+    a {
       border: 1px solid #625efd;
       border-radius: 20px;
       padding: 8px 20px;
       width: 140px;
     }
 
-    span{
+    span {
       font-size: 15px;
     }
   }
