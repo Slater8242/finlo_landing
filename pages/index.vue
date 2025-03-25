@@ -1,5 +1,19 @@
 <script setup lang="ts">
+const slide = {
+  id: 1,
+  icon: "uil:clock",
+  title: "Hipotekārais kredīts",
+  description: "Aizdevums ar nekustamā īpašuma ķīlas nodrošinājumu. Īpašuma iegādei, esoša aizdevuma pārkreditācijai vai esoša īpašuma ieķīlāšana.",
+  link: "#",
+};
 
+const carouselConfig = {
+  // autoplay: 5000,
+  height: 400,
+  itemsToShow: 3,
+  gap: 20,
+  wrapAround: true,
+};
 </script>
 
 <template>
@@ -7,22 +21,25 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <h2>Mūsdienīga pieeja <br>
-            Aizdevumu izsniegšanai</h2>
-          <p>
-            Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā īpašuma nodrošinājumu jeb hipotekārais kredīts.
-            <br>
-            Izprotot klientu vēlmes un vajadzības, esam izstrādājuši pieteikšanās un kredīta izvērtēšanas procedūru pēc iespējas ērtāku un klientam piemērotāku.
-          </p>
-          <button class="cta-button">Get Started</button>
+          <div class="hero-text">
+            <h1>
+              Mūsdienīga pieeja <br />
+              Aizdevumu izsniegšanai
+            </h1>
+            <p>
+              Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
+              īpašuma nodrošinājumu jeb hipotekārais kredīts.
+              <br />
+              Izprotot klientu vēlmes un vajadzības, esam izstrādājuši
+              pieteikšanās un kredīta izvērtēšanas procedūru pēc iespējas ērtāku
+              un klientam piemērotāku.
+            </p>
+            <Button label="Pieteikties" />
+          </div>
+          <div class="image">
+            <img src="/assets/images/hero-image.png" alt="">
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="about">
-      <div class="container">
-        <h2>Why Choose Us?</h2>
-        <p>We provide seamless financial services with top-tier security and convenience.</p>
       </div>
     </section>
 
@@ -30,52 +47,73 @@
       <div class="container">
         <h2>Our Features</h2>
         <div class="feature-grid">
-          <div class="feature-card">
-            <h3>🔒 Secure Transactions</h3>
-            <p>End-to-end encryption for safe payments.</p>
-          </div>
-          <div class="feature-card">
-            <h3>⚡ Instant Transfers</h3>
-            <p>Send and receive money within seconds.</p>
-          </div>
-          <div class="feature-card">
-            <h3>📞 24/7 Support</h3>
-            <p>Always here to help, anytime you need.</p>
-          </div>
-          <div class="feature-card">
-            <h3>⚡ Instant Transfers</h3>
-            <p>Send and receive money within seconds.</p>
-          </div>
-          <div class="feature-card">
-            <h3>📞 24/7 Support</h3>
-            <p>Always here to help, anytime you need.</p>
-          </div>
-          <div class="feature-card contact-card">
-            <h3>📞 Need more info?</h3>
-            <p>Contact us now!</p>
+          <div class="feature-card" v-for="n in 4">
+            <Icon name="uil:clock" class="icon" />
+            <p>Request Appointment</p>
           </div>
         </div>
+        <Button label="Pieteikties" styling="style-2"/>
+      </div>
+    </section>
+
+    <section class="loan-types">
+      <div class="container">
+        <Carousel v-bind="carouselConfig">
+          <Slide v-for="n in 5" :key="slide.id">
+            <div class="carousel-slide">
+              <Icon :name="slide.icon" style="width: 60px; height: 60px"/>
+              <p><strong>{{ slide.title }}</strong></p>
+              <span>{{ slide.description }}</span>
+              <a href="#">Learn more</a>
+            </div>
+          </Slide>
+          <template #addons>
+            <Pagination />
+          </template>
+        </Carousel>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>Why Choose Us?</h2>
+        <p>
+          We provide seamless financial services with top-tier security and
+          convenience.
+        </p>
       </div>
     </section>
 
     <section class="contact">
       <div class="container">
-        <h2>Contact Us</h2>
-        <p>Email: support@fintechpro.com</p>
+        <h2>Sazinies ar mums</h2>
+        <a href="tel:+37167199909">67 19 99 09</a>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-
-.contact{
-  text-align: center;
-  background-color: #8C92A6;
+a{
+  text-decoration: none;
 }
 
-.content{
-  padding-top: 100px;
+.contact {
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  background-color: #625efd;
+  a {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 20px;
+    color: #625efd;
+    display: inline-block;
+  }
+}
+
+.content {
   text-align: center;
 }
 
@@ -94,44 +132,47 @@
 .hero {
   position: relative;
   padding: 35px 15px;
-  background: #574D93;
+  background: #6A47ED;
   color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 0;
+  height: 710px;
 }
 
-.hero-content{
+.hero-content {
   display: flex;
   row-gap: 15px;
   align-items: center;
   flex-direction: column;
 }
 
-.about, .features, .contact {
+.about,
+.features,
+.contact, .loan-types {
   position: relative;
   margin-top: 30px;
   padding: 15px 15px;
 }
 
-.hero::before{
+.hero::before {
   display: block;
   content: "";
   top: 0;
-  left: 0;
+  right: 0;
   position: absolute;
-  width: 50%;
+  width: 472px;
   height: 100%;
-  background-image: url("@/assets/images/man.png");
+  /* background-image: url("@/assets/images/fintech-abstract.jpg"); */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   z-index: -1;
 }
 
-.features::before{
+.features::before {
   display: block;
   content: "";
-  bottom: 50px;
+  top: 0;
   right: 0;
   position: absolute;
   width: 100%;
@@ -151,38 +192,85 @@
   justify-content: center;
   gap: 20px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .feature-card {
-  width: 240px;
-  height: 80px;
+  /* width: 240px; */
   background: rgba(255, 255, 255, 0.3);
   padding: 35px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  flex: 1;
   text-align: center;
 }
 
-.contact-card{
+.contact-card {
   background-color: rgba(38, 31, 179, 0.5);
 }
 
-@media only screen and (min-width: 768px){
-  .feature-grid{
+@media only screen and (min-width: 768px) {
+  .feature-grid {
     grid-template-columns: auto auto;
   }
 }
 
-@media only screen and (min-width: 1024px){
-  .features::before{
+@media only screen and (min-width: 1024px) {
+  .hero .container{
+    max-width: 1300px;
+  }
+
+  .hero-content{
+    flex-direction: row;
+  }
+
+  .hero-text{
+    h1{
+      font-size: 50px;
+    }
+
+    p{
+      font-size: 25px;
+    }
+  }
+
+  .features::before {
     width: 55%;
     height: 115%;
   }
 
-  .feature-grid{
-    grid-template-columns: auto auto auto;
+  .feature-grid {
+    display: flex;
   }
 
+  .feature-card {
+    display: flex;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .carousel-slide {
+    border: 1px solid #625efd;
+    border-radius: 10px;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 20px;
+    height: 350px;
+    
+    a{
+      border: 1px solid #625efd;
+      border-radius: 20px;
+      padding: 8px 20px;
+      width: 140px;
+    }
+
+    span{
+      font-size: 15px;
+    }
+  }
 }
 </style>

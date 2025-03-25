@@ -7,6 +7,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body{
@@ -14,7 +15,7 @@ body{
 }
 
 .container {
-  width: 90%; /* Контейнер растягивается на всю ширину */
+  max-width: 90%; /* Контейнер растягивается на всю ширину */
   margin: 0 auto;
 }
 

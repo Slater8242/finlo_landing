@@ -45,6 +45,10 @@ const services = [
           <li><NuxtLink to="#faq" class="nav-item">BUJ</NuxtLink></li>
         </ul>
       </nav>
+      <div class="login-lang">
+        <Button label="Login"/>
+        <Button label="LV"/>
+      </div>
     </div>
   </header>
 </template>
@@ -55,14 +59,19 @@ const services = [
   top: 0;
   padding: 20px 0;
   z-index: 5;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #6A47ED;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container{
+  max-width: 1200px;
 }
 
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #fff;
 }
 
 .menu-closed{
@@ -73,7 +82,7 @@ const services = [
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: #fff;
   height: 100vh;
   width: 100%;
 }
@@ -101,14 +110,16 @@ const services = [
 .logo{
   width: 120px;
   height: 30px;
-  color: #261FB3;
+  color: #fff;
   cursor: pointer;
 }
 
-.nav a {
+a{
   text-decoration: none;
-  color: #333;
-  /* font-weight: bold; */
+}
+
+.nav-item {
+  color: inherit;
   transition: 0.3s;
 }
 
@@ -118,10 +129,16 @@ const services = [
   gap: 15px;
   padding: 5px 10px;
   border-radius: 10px;
+  color: #000;
+  transition: 0.3s;
 }
 
 .service-item:hover{
   background-color: rgba(0, 0, 0, .1);
+}
+
+.nav-item:hover {
+  color: #000;
 }
 
 @media only screen and (min-width: 1024px){
@@ -144,10 +161,6 @@ const services = [
     display: none;
   }
 
-  .nav-item:hover {
-    color: var(--primary-color);
-  }
-
   .logo{
     width: 164px;
     height: 45px;
@@ -162,7 +175,6 @@ const services = [
 
   .service-list{
     position: absolute;
-    width: 470px;
     margin-top: 10px;
     padding: 20px;
     background-color: white;
@@ -170,9 +182,14 @@ const services = [
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 15px 10px;
-    /* border: 1px solid black; */
     box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
     border-radius: 10px;
+  }
+
+  .login-lang{
+    display: flex;
+    gap: 15px;
+    align-items: center;
   }
 }
 </style>
