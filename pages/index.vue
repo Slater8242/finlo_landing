@@ -29,7 +29,7 @@ const slide = {
             <Button label="Pieteikties" style="margin-top: 20px"/>
           </div>
           <div class="image">
-            <img src="/assets/images/hero-image.png" alt="">
+<!--            <img src="/assets/images/background.png" alt="background" width="600" height="700">-->
           </div>
         </div>
       </div>
@@ -130,11 +130,11 @@ a {
 .hero {
   position: relative;
   padding: 35px 15px;
-  background: #6A47ED;
-  color: white;
+  /*background: #6A47ED;*/
+  color: #615d5d;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 0;
-  height: 709px;
+  height: 600px;
 }
 
 .hero-content {
@@ -159,11 +159,11 @@ a {
   top: 0;
   right: 0;
   position: absolute;
-  width: 472px;
+  width: 100%;
   height: 100%;
-  /* background-image: url("@/assets/images/fintech-abstract.jpg"); */
+   background-image: url("@/assets/images/background.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   z-index: -1;
 }
@@ -179,7 +179,7 @@ a {
   background-image: url("@/assets/icons/logo.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: top right;
+  background-position: center;
   z-index: -1;
   opacity: 0.04;
 }
@@ -229,8 +229,7 @@ a {
   }
 
   .features::before {
-    width: 55%;
-    height: 115%;
+    height: 85%;
   }
 
   .feature-grid {
@@ -244,6 +243,15 @@ a {
   .icon {
     width: 60px;
     height: 60px;
+  }
+
+  .contact::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url("/assets/images/cells.png");
   }
 
   .carousel-slide {

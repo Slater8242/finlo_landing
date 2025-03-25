@@ -14,10 +14,42 @@ const services = [
   {title: "Zemniekiem", icon:"iconoir:farm"},
   {title: "Auto līzings", icon:"uil:car-sideview"},
 ]
+
+const links = [
+  {name: "twitter", icon:"uil:twitter"},
+  {name: "facebook", icon:"uil:facebook"},
+  {name: "linkedin", icon:"uil:linkedin"},
+]
 </script>
 
 <template>
   <header class="header">
+    <div class="header-contact">
+      <div class="container">
+        <div class="left">
+          <div class="address">
+            <Icon name="uil:map-marker"/>
+            <span>Bukultu iela 11, Rīga, LV-1005</span>
+          </div>
+          <div class="working-hours">
+            <Icon name="uil:clock"/>
+            <span>Pirmdiena-Piektdiena: 08-17</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="contact">
+            <Icon name="uil:phone"/>
+            <span>67 19 96 06</span>
+          </div>
+          <div class="socials">
+            <span>Sociālie tīkli</span>
+            <NuxtLink to="#" v-for="link in links" :key="link.name">
+              <Icon :name="link.icon" style="color: white"/>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="navbar container">
       <a href="#">
         <SvgoLogo class="logo"/>
@@ -57,21 +89,39 @@ const services = [
 .header{
   position: sticky;
   top: 0;
-  padding: 20px 0;
+  padding-bottom: 20px;
   z-index: 5;
   background-color: #6A47ED;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
 }
 
-.container{
-  max-width: 1200px;
+.header-contact{
+  padding: 10px 0;
+  background-color: #3f2a87;
+}
+
+.header-contact .container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right {
+  display: flex;
+  gap: 40px;
+}
+
+.address, .working-hours, .contact{
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
+  margin-top: 20px;
 }
 
 .menu-closed{
