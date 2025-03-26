@@ -114,11 +114,9 @@ const qualities = [
       </div>
     </section>
 
-    <section class="personalized-service">
+    <section class="service">
       <div class="container">
-        <div class="photo">
-          <img src="/assets/images/03.jpg" alt="image" style="width: 500px" />
-        </div>
+        <img src="/assets/images/03.jpg" alt="image" class="service-image"/>
         <div class="service-text">
           <div class="service-title">
             <h2>Personiska pieeja un profesionāla apkalpošana</h2>
@@ -146,17 +144,15 @@ const qualities = [
 
     <section class="loan-types">
       <div class="container">
-        <h1 style="font-size: 50px; margin-bottom: 50px">
+        <h1 class="loan-types-title">
           Mūsu pakalpojumu klāts
         </h1>
         <Carousel>
           <swiper-slide v-for="(slide, index) in slides" :key="index">
             <div class="carousel-slide">
               <Icon :name="slide.icon" class="icon" />
-              <p>
-                <strong>{{ slide.title }}</strong>
-              </p>
-              <span>{{ slide.description }}</span>
+              <strong class="slide-title">{{ slide.title }}</strong>
+              <span class="slide-description">{{ slide.description }}</span>
               <a href="#">Learn more</a>
             </div>
           </swiper-slide>
@@ -217,7 +213,6 @@ a {
   background-size: cover;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  height: 600px;
 }
 
 .hero-content {
@@ -230,7 +225,7 @@ a {
 .features,
 .contact,
 .loan-types,
-.personalized-service {
+.service {
   position: relative;
   margin-top: 30px;
   padding: 15px 15px;
@@ -271,8 +266,37 @@ a {
   text-align: center;
 }
 
+.service-image{
+  width: 100%;
+}
+
 .loan-types {
   background-color: #f1f1ff;
+
+  h1{
+    font-size: 30px;
+  }
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    color: #6a47ed;
+  }
+
+.carousel-slide{
+  border: 1px solid #625efd;
+  border-radius: 10px;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+  cursor: grab;
+}
+
+.slide-description{
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -282,10 +306,10 @@ a {
 }
 
 @media only screen and (min-width: 1024px) {
-  .hero .container {
-    max-width: 1300px;
+  .hero{
+    height: 600px;
   }
-
+  
   .hero-content {
     flex-direction: row;
   }
@@ -300,7 +324,7 @@ a {
   .features,
   .contact,
   .loan-types,
-  .personalized-service,
+  .service,
   .faq {
     margin: 0;
     padding: 50px 0;
@@ -323,9 +347,13 @@ a {
     }
   }
 
-  .personalized-service .container {
+  .service .container {
     display: flex;
     align-items: center;
+  }
+
+  .service-image{
+    width: 500px;
   }
 
   .service-text {
@@ -352,37 +380,29 @@ a {
     align-items: center;
   }
 
+  .loan-types-title{
+    font-size: 50px; 
+    margin-bottom: 50px
+  }
+
   .icon {
     width: 60px;
     height: 60px;
-    color: #6a47ed;
   }
 
   .contact {
     height: 400px;
     display: flex;
     align-items: center;
-  }
-
-  .contact h2 {
-    font-size: 86px;
+    
+    h2 {
+      font-size: 86px;
+    }
   }
 
   .carousel-slide {
-    border: 1px solid #625efd;
-    border-radius: 10px;
-    padding: 15px 25px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 10px;
     height: 350px;
-    cursor: grab;
-
-    span {
-      font-size: 15px;
-      flex-grow: 1;
-    }
+    gap: 20px;
 
     a {
       border: 1px solid #625efd;
@@ -390,6 +410,15 @@ a {
       padding: 8px 20px;
       width: 140px;
     }
+  }
+
+  .slide-title{
+    font-size: 20px;
+  }
+
+  .slide-description{
+    font-size: 15px;
+    flex-grow: 1;
   }
 }
 </style>

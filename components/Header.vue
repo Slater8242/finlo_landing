@@ -112,11 +112,15 @@ a{
   color: #fff;
 }
 
+.header-contact{
+  display: none;
+}
+
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .menu-closed{
@@ -127,7 +131,7 @@ a{
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: #6A47ED;
   height: 100vh;
   width: 100%;
 }
@@ -190,13 +194,19 @@ a{
   color: #1877F2 !important;
   opacity: 1 !important;
 }
+
 :where(.i-uil\:linkedin):hover{
   color: #0A66C2 !important;
   opacity: 1 !important;
 }
 
+.login-lang{
+  display: none;
+}
+
 @media only screen and (min-width: 1024px){
   .header-contact{
+    display: block;
     padding: 10px 0;
     background-color: #3f2a87;
   }
@@ -223,6 +233,11 @@ a{
 
   .socials a{
     display: flex;
+  }
+
+  .navbar{
+    padding: 0;
+    margin-top: 20px;
   }
 
   .nav{
