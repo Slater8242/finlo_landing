@@ -11,6 +11,7 @@
         :slides-per-view="4"
         :space-between="20"
         :autoplay="true"
+        :speed="1000"
         :loop="true"
     >
       <slot/>

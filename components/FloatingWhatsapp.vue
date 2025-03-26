@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <NuxtLink to="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+  <NuxtLink to="https://wa.me/+37122726944" target="_blank" rel="noopener noreferrer">
     <Icon name="uil:whatsapp" style="color: #fff; font-size: 46px;"/>
   </NuxtLink>
 </template>

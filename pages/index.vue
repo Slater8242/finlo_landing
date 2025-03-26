@@ -1,11 +1,89 @@
 <script setup lang="ts">
-const slide = {
-  id: 1,
-  icon: "uil:clock",
-  title: "Hipotekārais kredīts",
-  description: "Aizdevums ar nekustamā īpašuma ķīlas nodrošinājumu. Īpašuma iegādei, esoša aizdevuma pārkreditācijai vai esoša īpašuma ieķīlāšana.",
-  link: "#",
-};
+const slides = [
+  {
+    icon: "mdi:currency-usd-off",
+    title: "Kredītu apvienošana",
+    description:
+      "Apvienojiet vairākus kredītus vienā, samazinot ikmēneša maksājumu un vienkāršojot finanšu plānošanu.",
+    link: "#",
+  },
+  {
+    icon: "mdi:hammer-wrench",
+    title: "Īpašuma remontam",
+    description:
+      "Finansējums mājokļa vai komercobjekta remontam, lai palielinātu tā vērtību un uzlabotu dzīves kvalitāti.",
+    link: "#",
+  },
+  {
+    icon: "mdi:tractor",
+    title: "Zemniekiem",
+    description:
+      "Finansējums lauksaimniecības tehnikas remontam un uzturēšanai, nodrošinot nepārtrauktu saimniecības darbību",
+    link: "#",
+  },
+  {
+    icon: "mdi:bank-transfer",
+    title: "Pārkreditācija",
+    description:
+      "Labāki nosacījumi esošo kredītsaistību refinansēšanai, lai samazinātu procentu likmi un kopējās izmaksas.",
+    link: "#",
+  },
+  {
+    icon: "mdi:wallet",
+    title: "Apgrozāmajiem līdzekļiem",
+    description:
+      "Aizdevums sezonālajām izmaksām, sēklām, degvielai un citiem saimniecības darbībai nepieciešamajiem resursiem.",
+    link: "#",
+  },
+  {
+    icon: "mdi:chart-line",
+    title: "Biznesa attīstībai",
+    description:
+      "Kapitāls jaunu projektu realizēšanai, uzņēmuma izaugsmei un konkurētspējas uzlabošanai.",
+    link: "#",
+  },
+];
+
+const features = [
+  { title: "Licencēts aizdevējs", icon: "mdi:certificate" },
+  { title: "NĪ nodrošināti kredīti", icon: "mdi:home-lock" },
+  { title: "Tirgū no 2008. gada", icon: "mdi:calendar-check" },
+  { title: "Kreditējam visā LV", icon: "game-icons:latvia" },
+];
+
+const accordionItems = [
+  {
+    title: "Vai iespējams kredītu atdot ātrāk?",
+    content: "Jā, kredītu pirms termiņa iespējams atdot ātrāk.",
+  },
+  {
+    title: "Vai daļu kredīta iespējams saņemt uzreiz?",
+    content:
+      "Steidzamu biznesa jautājumu risināšanai, varam izvērtēt daļu finansējuma izsniegt līguma parakstīšanas dienā.",
+  },
+  {
+    title: "Ja aizdevumu ņemu kredītu apvienošanai, kurš dzēsīs kredītus?",
+    content:
+      "FINLO aizdevumu pārskaitīs uz Jūsu norēķinu bankas kontu, līdz ar to Jūs būsiet atbildīgs par kredītu dzēšanu un maksājuma uzdevumu iesniegšanu dzēšanas apliecināšanai FINLO.",
+  },
+  {
+    title: "Vai īpašumam tiks veikts nekustamā īpašuma novērtējums?",
+    content: "Jā, mēs pasūtam sertificēta vērtētāja īpašuma novērtējumu.",
+  },
+  {
+    title: "Kāda ir procentu likme?",
+    content: "Procentu likme pie Finlo ir no 10% + 6 mēn. EURIBOR gadā",
+  },
+];
+
+const qualities = [
+  "Piedāvājums dienas laikā",
+  "Pielāgots atmaksas grafiks",
+  "Dinamiska apkapošana",
+  "Individuāla pieeja",
+  "Noslēdz attālināti",
+  "Minimāla birokrātija",
+];
 </script>
 
 <template>
@@ -15,21 +93,10 @@ const slide = {
         <div class="hero-content">
           <div class="hero-text">
             <h1>
-              Mūsdienīga pieeja <br/>
+              Mūsdienīga pieeja <br />
               Aizdevumu izsniegšanai
             </h1>
-            <p>
-              Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
-              īpašuma nodrošinājumu jeb hipotekārais kredīts.
-              <br/>
-              Izprotot klientu vēlmes un vajadzības, esam izstrādājuši
-              pieteikšanās un kredīta izvērtēšanas procedūru pēc iespējas ērtāku
-              un klientam piemērotāku.
-            </p>
-            <Button label="Pieteikties" style="margin-top: 20px"/>
-          </div>
-          <div class="image">
-<!--            <img src="/assets/images/background.png" alt="background" width="600" height="700">-->
+            <Button label="Pieteikties" style="margin-top: 20px" />
           </div>
         </div>
       </div>
@@ -39,57 +106,68 @@ const slide = {
       <div class="container">
         <h2>Our Features</h2>
         <div class="feature-grid">
-          <div class="feature-card" v-for="n in 4">
-            <Icon name="uil:clock" class="icon"/>
-            <p>Request Appointment</p>
+          <div class="feature-card" v-for="feature in features">
+            <Icon :name="feature.icon" class="icon" />
+            <p>{{ feature.title }}</p>
           </div>
         </div>
-        <Button label="Pieteikties"/>
       </div>
     </section>
 
-    <section class="text-photo">
-      <div class="container" style="display: flex; max-width: 1200px">
+    <section class="personalized-service">
+      <div class="container">
         <div class="photo">
-          <img src="/assets/images/03.jpg" alt="image" style="width: 500px">
+          <img src="/assets/images/03.jpg" alt="image" style="width: 500px" />
         </div>
-        <div class="text" style="text-align: left; margin-left: 60px">
-          <div class="title">
-            <h2 style="font-size: 50px;">
-              Dedicated to Your
-              <br>
-              Health and Wellness
-            </h2>
+        <div class="service-text">
+          <div class="service-title">
+            <h2>Personiska pieeja un profesionāla apkalpošana</h2>
           </div>
-          <p class="description" style="margin-top: 30px; margin-bottom: 30px; color: #6B6B6B;">
-            At Mediweb, our mission is to provide exceptional healthcare services with a focus on patient-centered care.
-            We are dedicated to improving the health and well-being of our community through.
+          <p class="service-description" style="">
+            Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
+            īpašuma nodrošinājumu jeb hipotekārais kredīts. Izprotot klientu
+            vēlmes un vajadzības, esam izstrādājuši pieteikšanās un kredīta
+            izvērtēšanas procedūru pēc iespējas ērtāku un klientam piemērotāku.
           </p>
-          <div class="qualities" style="display: flex; gap: 20px;">
-            <div class="quality" v-for="n in 2" :key="n">
-              <div class="single-quality" v-for="n in 3" :key="n" style="display: flex; align-items: center;">
-                <Icon name="uil:check" style="font-size: 30px; color: #6A47ED"/>
-                <span style="font-size: 18px">Comprehensive Care Services</span>
-              </div>
+          <div class="service-quality">
+            <div
+              class="single-quality"
+              v-for="(quality, index) in qualities"
+              :key="index"
+            >
+              <Icon name="uil:check" style="font-size: 30px; color: #6a47ed" />
+              <span style="font-size: 18px">{{ quality }}</span>
             </div>
           </div>
-          <Button label="Pieteikties" style="margin-top: 20px"/>
+          <Button label="Pieteikties" style="margin-top: 20px" />
         </div>
       </div>
     </section>
 
     <section class="loan-types">
       <div class="container">
+        <h1 style="font-size: 50px; margin-bottom: 50px">
+          Mūsu pakalpojumu klāts
+        </h1>
         <Carousel>
-          <swiper-slide v-for="n in 10" :key="n">
+          <swiper-slide v-for="(slide, index) in slides" :key="index">
             <div class="carousel-slide">
-              <Icon :name="slide.icon" style="width: 60px; height: 60px"/>
-              <p><strong>{{ slide.title }}</strong></p>
+              <Icon :name="slide.icon" class="icon" />
+              <p>
+                <strong>{{ slide.title }}</strong>
+              </p>
               <span>{{ slide.description }}</span>
               <a href="#">Learn more</a>
             </div>
           </swiper-slide>
         </Carousel>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h1 style="font-size: 50px; margin-bottom: 50px">BUJ</h1>
+        <Accordion :items="accordionItems" />
       </div>
     </section>
 
@@ -100,7 +178,7 @@ const slide = {
       </div>
     </section>
   </div>
-  <FloatingWhatsapp/>
+  <FloatingWhatsapp />
 </template>
 
 <style scoped>
@@ -134,10 +212,10 @@ a {
 .hero {
   position: relative;
   padding: 35px 15px;
-  /*background: #6A47ED;*/
-  background-image: url("@/assets/images/background.png");
+  background-color: #6a47ed;
+  background-image: url("@/assets/images/transparnt_bg.png");
   background-size: cover;
-  color: #615d5d;
+  color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: 600px;
 }
@@ -152,7 +230,7 @@ a {
 .features,
 .contact,
 .loan-types,
-.text-photo{
+.personalized-service {
   position: relative;
   margin-top: 30px;
   padding: 15px 15px;
@@ -193,6 +271,10 @@ a {
   text-align: center;
 }
 
+.loan-types {
+  background-color: #f1f1ff;
+}
+
 @media only screen and (min-width: 768px) {
   .feature-grid {
     grid-template-columns: auto auto;
@@ -209,20 +291,19 @@ a {
   }
 
   .hero-text {
+    margin-top: 100px;
     h1 {
-      font-size: 50px;
-    }
-
-    p {
-      font-size: 25px;
+      font-size: 70px;
     }
   }
 
   .features,
   .contact,
   .loan-types,
-  .text-photo{
-    margin-top: 100px;
+  .personalized-service,
+  .faq {
+    margin: 0;
+    padding: 50px 0;
   }
 
   .features::before {
@@ -237,23 +318,53 @@ a {
     display: flex;
     align-items: center;
 
-    p{
+    p {
       font-size: 24px;
     }
+  }
+
+  .personalized-service .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .service-text {
+    text-align: left;
+    margin-left: 60px;
+    h2 {
+      font-size: 50px;
+    }
+  }
+
+  .service-description {
+    margin: 30px 0;
+    color: #6b6b6b;
+  }
+
+  .service-quality {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto;
+  }
+
+  .single-quality {
+    display: flex;
+    align-items: center;
   }
 
   .icon {
     width: 60px;
     height: 60px;
+    color: #6a47ed;
   }
 
-  .contact{
+  .contact {
     height: 400px;
     display: flex;
     align-items: center;
   }
 
-  .contact h2{
+  .contact h2 {
     font-size: 86px;
   }
 
@@ -264,19 +375,20 @@ a {
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 20px;
+    gap: 10px;
     height: 350px;
-    width: 280px;
     cursor: grab;
+
+    span {
+      font-size: 15px;
+      flex-grow: 1;
+    }
+
     a {
       border: 1px solid #625efd;
       border-radius: 20px;
       padding: 8px 20px;
       width: 140px;
-    }
-
-    span {
-      font-size: 15px;
     }
   }
 }

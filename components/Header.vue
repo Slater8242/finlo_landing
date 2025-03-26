@@ -16,7 +16,6 @@ const services = [
 ]
 
 const links = [
-  {name: "twitter", icon:"uil:twitter"},
   {name: "facebook", icon:"uil:facebook"},
   {name: "linkedin", icon:"uil:linkedin"},
 ]
@@ -42,10 +41,15 @@ const links = [
           </div>
         </div>
         <div class="right">
-          <div class="contact">
+          <NuxtLink 
+            to="tel:+37167199606" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="contact"
+          >
             <Icon name="uil:phone"/>
             <span>67 19 96 06</span>
-          </div>
+          </NuxtLink>
           <div class="socials">
             <span>Sociālie tīkli</span>
             <NuxtLink to="#" v-for="link in links" :key="link.name">
@@ -182,10 +186,6 @@ a{
   color: #000;
 }
 
-:where(.i-uil\:twitter):hover{
-  color: #1DA1F2 !important;
-  opacity: 1 !important;
-}
 :where(.i-uil\:facebook):hover{
   color: #1877F2 !important;
   opacity: 1 !important;
@@ -217,7 +217,7 @@ a{
     gap: 5px;
   }
 
-  .address:hover{
+  .address:hover, .contact:hover{
     opacity: 0.7;
   }
 

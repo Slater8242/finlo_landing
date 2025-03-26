@@ -17,9 +17,6 @@ const services = [
         <span>Sociālie tīkli</span>
         <div class="links">
           <NuxtLink>
-            <Icon name="uil:twitter" class="social-icon"/>
-          </NuxtLink>
-          <NuxtLink>
             <Icon name="uil:facebook" class="social-icon"/>
           </NuxtLink>
           <NuxtLink>
@@ -92,10 +89,6 @@ footer {
   height: 25px;
 }
 
-:where(.i-uil\:twitter):hover{
-  color: #1DA1F2;
-  opacity: 1 !important;
-}
 :where(.i-uil\:facebook):hover{
   color: #1877F2;
   opacity: 1 !important;
