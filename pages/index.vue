@@ -44,7 +44,7 @@ const slide = {
             <p>Request Appointment</p>
           </div>
         </div>
-        <Button label="Pieteikties" styling="style-2"/>
+        <Button label="Pieteikties"/>
       </div>
     </section>
 
@@ -73,7 +73,7 @@ const slide = {
               </div>
             </div>
           </div>
-          <Button label="Pieteikties" styling="style-2" style="margin-top: 20px"/>
+          <Button label="Pieteikties" style="margin-top: 20px"/>
         </div>
       </div>
     </section>
@@ -100,6 +100,7 @@ const slide = {
       </div>
     </section>
   </div>
+  <FloatingWhatsapp/>
 </template>
 
 <style scoped>
@@ -112,7 +113,10 @@ a {
   color: #fff;
   font-size: 30px;
   background-color: #625efd;
-
+  background-image: url("/assets/images/cells.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
   a {
     background-color: #fff;
     padding: 10px 15px;
@@ -131,9 +135,10 @@ a {
   position: relative;
   padding: 35px 15px;
   /*background: #6A47ED;*/
+  background-image: url("@/assets/images/background.png");
+  background-size: cover;
   color: #615d5d;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 0;
   height: 600px;
 }
 
@@ -151,21 +156,6 @@ a {
   position: relative;
   margin-top: 30px;
   padding: 15px 15px;
-}
-
-.hero::before {
-  display: block;
-  content: "";
-  top: 0;
-  right: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-   background-image: url("@/assets/images/background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
 }
 
 .features::before {
@@ -228,6 +218,13 @@ a {
     }
   }
 
+  .features,
+  .contact,
+  .loan-types,
+  .text-photo{
+    margin-top: 100px;
+  }
+
   .features::before {
     height: 85%;
   }
@@ -238,6 +235,11 @@ a {
 
   .feature-card {
     display: flex;
+    align-items: center;
+
+    p{
+      font-size: 24px;
+    }
   }
 
   .icon {
@@ -245,13 +247,14 @@ a {
     height: 60px;
   }
 
-  .contact::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-image: url("/assets/images/cells.png");
+  .contact{
+    height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact h2{
+    font-size: 86px;
   }
 
   .carousel-slide {

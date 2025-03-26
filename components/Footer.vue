@@ -141,6 +141,10 @@ footer {
     flex-direction: row;
   }
 
+  .socials span{
+    font-size: 25px;
+  }
+
   .nav-bar{
     text-align: left;
     gap: 30px;

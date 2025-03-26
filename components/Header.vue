@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const show = ref(false);
+const showDropdown = ref(false);
 const menu = ref(false);
 
 const toggleShow = ()=>{
-  show.value = !show.value
+  showDropdown.value = !showDropdown.value
 }
 
 const services = [
@@ -27,10 +27,15 @@ const links = [
     <div class="header-contact">
       <div class="container">
         <div class="left">
-          <div class="address">
+          <NuxtLink 
+            to="https://maps.app.goo.gl/VDzfR6BaiPSR5VEn7" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="address"
+          >
             <Icon name="uil:map-marker"/>
             <span>Bukultu iela 11, Rīga, LV-1005</span>
-          </div>
+          </NuxtLink>
           <div class="working-hours">
             <Icon name="uil:clock"/>
             <span>Pirmdiena-Piektdiena: 08-17</span>
@@ -44,7 +49,7 @@ const links = [
           <div class="socials">
             <span>Sociālie tīkli</span>
             <NuxtLink to="#" v-for="link in links" :key="link.name">
-              <Icon :name="link.icon" style="color: white"/>
+              <Icon :name="link.icon" style="color: white; font-size: 25px;"/>
             </NuxtLink>
           </div>
         </div>
@@ -60,10 +65,12 @@ const links = [
         <ul class="nav-list">
           <li><a href="#about" class="nav-item">Sākums</a></li>
           <li class="services nav-item" @click="toggleShow">
-            <span>Pakalpojumi</span>
-            <Icon v-if="!show" name="ic:baseline-keyboard-arrow-down"/>
-            <Icon v-if="show" name="ic:baseline-keyboard-arrow-up"/>
-            <ul v-if="show" class="service-list">
+            <div style="display: flex; align-items: center;">
+              <span>Pakalpojumi</span>
+              <Icon v-if="!showDropdown" name="ic:baseline-keyboard-arrow-down"/>
+              <Icon v-if="showDropdown" name="ic:baseline-keyboard-arrow-up"/>
+            </div>
+            <ul v-if="showDropdown" class="service-list">
               <li v-for="service in services" :key="service.title">
                 <NuxtLink :to="service.title" class="service-item">
                   <Icon :name="service.icon" style="width: 25px; height: 25px;"/>
@@ -86,6 +93,11 @@ const links = [
 </template>
 
 <style scoped>
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
 .header{
   position: sticky;
   top: 0;
@@ -94,27 +106,6 @@ const links = [
   background-color: #6A47ED;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
-}
-
-.header-contact{
-  padding: 10px 0;
-  background-color: #3f2a87;
-}
-
-.header-contact .container{
-  display: flex;
-  justify-content: space-between;
-}
-
-.left, .right {
-  display: flex;
-  gap: 40px;
-}
-
-.address, .working-hours, .contact{
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 .navbar{
@@ -191,7 +182,49 @@ a{
   color: #000;
 }
 
+:where(.i-uil\:twitter):hover{
+  color: #1DA1F2 !important;
+  opacity: 1 !important;
+}
+:where(.i-uil\:facebook):hover{
+  color: #1877F2 !important;
+  opacity: 1 !important;
+}
+:where(.i-uil\:linkedin):hover{
+  color: #0A66C2 !important;
+  opacity: 1 !important;
+}
+
 @media only screen and (min-width: 1024px){
+  .header-contact{
+    padding: 10px 0;
+    background-color: #3f2a87;
+  }
+
+  .header-contact .container{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left, .right {
+    display: flex;
+    gap: 40px;
+  }
+
+  .address, .working-hours, .contact, .socials{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .address:hover{
+    opacity: 0.7;
+  }
+
+  .socials a{
+    display: flex;
+  }
+
   .nav{
     position: static;
     width: auto;
