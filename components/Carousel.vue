@@ -10,7 +10,7 @@
         }"
         :slides-per-view="4"
         :space-between="20"
-        :autoplay="false"
+        :autoplay="true"
         :speed="1000"
         :loop="true"
         :breakpoints="{

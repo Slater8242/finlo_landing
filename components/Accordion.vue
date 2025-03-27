@@ -29,7 +29,7 @@ const toggleItem = (index) => {
         :class="{ 'active': activeIndex === index }"
       >
         {{ item.title }}
-        <Icon :name="activeIndex === index ? 'uil:minus-circle': 'uil:plus-circle'" class="accordion-class"/>
+        <Icon :name="activeIndex === index ? 'uil:minus-circle': 'uil:plus-circle'" class="accordion-icon"/>
         <!-- <span class="accordion-icon">{{ activeIndex === index ? '−' : '+' }}</span> -->
       </button>
       <Transition name="accordion">
@@ -60,8 +60,8 @@ const toggleItem = (index) => {
 
 .accordion-header {
   width: 100%;
-  font-size: 20px;
-  padding: 16px;
+  font-size: 15px;
+  padding: 15px;
   background: transparent;
   border: none;
   text-align: left;
@@ -83,15 +83,13 @@ const toggleItem = (index) => {
 .accordion-content-inner {
   text-align: left;
   padding: 16px;
+  font-size: 13px;
 }
 
 .accordion-icon {
-  font-size: 1.2rem;
+  min-width: 20px;
+  min-height: 20px;
 }
-
-/* .active {
-  background: #f3f4f6;
-} */
 
 /* Стили для переходов */
 .accordion-enter-active,
@@ -110,4 +108,20 @@ const toggleItem = (index) => {
 .accordion-leave-from {
   opacity: 1;
 }
+@media only screen and (min-width: 1024px){
+  .accordion-header {
+    width: 100%;
+    font-size: 20px;
+    padding: 16px;
+  }
+
+  .accordion-content {
+    overflow: hidden;
+  }
+
+  .accordion-content-inner {
+    font-size: 16px;
+  }
+}
+
 </style>

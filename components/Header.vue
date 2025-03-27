@@ -16,8 +16,8 @@ const services = [
 ]
 
 const links = [
-  {name: "facebook", icon:"uil:facebook"},
-  {name: "linkedin", icon:"uil:linkedin"},
+  {name: "facebook", icon:"uil:facebook", link: "https://www.facebook.com/finlo.lv"},
+  {name: "linkedin", icon:"uil:linkedin", link: "https://www.linkedin.com/company/finlolv"},
 ]
 </script>
 

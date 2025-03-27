@@ -145,7 +145,7 @@ const qualities = [
     <section class="loan-types">
       <div class="container">
         <h1 class="loan-types-title">
-          Mūsu pakalpojumu klāts
+          Mūsu pakalpojumu klāsts
         </h1>
         <Carousel>
           <swiper-slide v-for="(slide, index) in slides" :key="index">
@@ -162,7 +162,7 @@ const qualities = [
 
     <section class="faq">
       <div class="container">
-        <h1 style="font-size: 50px; margin-bottom: 50px">BUJ</h1>
+        <h1 class="faq-title">Biežāk uzdotie jautājumi</h1>
         <Accordion :items="accordionItems" />
       </div>
     </section>
@@ -251,14 +251,13 @@ a {
   display: grid;
   justify-items: center;
   grid-template-columns: auto;
-  justify-content: center;
   gap: 20px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .feature-card {
-  /* width: 240px; */
+  width: 100%;
   background: rgba(255, 255, 255, 0.3);
   padding: 35px 20px;
   border-radius: 10px;
@@ -388,6 +387,11 @@ a {
   .icon {
     width: 60px;
     height: 60px;
+  }
+
+  .faq-title{
+    font-size: 50px;
+    margin-bottom: 50px
   }
 
   .contact {
