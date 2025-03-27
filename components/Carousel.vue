@@ -5,25 +5,25 @@
 <template>
   <ClientOnly>
     <swiper-container
-        :pagination="{
-          clickable: true,
-        }"
-        :slides-per-view="4"
-        :space-between="20"
-        :autoplay="true"
-        :speed="1000"
-        :loop="true"
-        :breakpoints="{
-          320:{
-            slidesPerView:1,
-          },
-          768:{
-            slidesPerView: 2
-          },
-          1024:{
-            slidesPerView: 4,
-          }
-        }"
+      :pagination="{
+        clickable: true,
+      }"
+      :slides-per-view="4"
+      :space-between="20"
+      :autoplay="true"
+      :speed="1000"
+      :loop="true"
+      :breakpoints="{
+        320:{
+          slidesPerView:1,
+        },
+        768:{
+          slidesPerView: 2
+        },
+        1024:{
+          slidesPerView: 4,
+        }
+      }"
     >
       <slot/>
     </swiper-container>

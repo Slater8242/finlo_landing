@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+const popupOpen = ref(false);
+
 const slides = [
   {
     icon: "mdi:currency-usd-off",
@@ -96,7 +99,10 @@ const qualities = [
               Mūsdienīga pieeja <br />
               Aizdevumu izsniegšanai
             </h1>
-            <Button label="Pieteikties" style="margin-top: 20px" />
+            <Button label="Pieteikties" style="margin-top: 20px" @click="popupOpen = true" />
+            <Popup :show="popupOpen" @close="popupOpen = false">
+              <ApplyForm />
+            </Popup>
           </div>
         </div>
       </div>
@@ -118,9 +124,7 @@ const qualities = [
       <div class="container">
         <img src="/assets/images/03.jpg" alt="image" class="service-image"/>
         <div class="service-text">
-          <div class="service-title">
-            <h2>Personiska pieeja un profesionāla apkalpošana</h2>
-          </div>
+          <h2 class="service-title">Personiska pieeja un profesionāla apkalpošana</h2>
           <p class="service-description" style="">
             Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
             īpašuma nodrošinājumu jeb hipotekārais kredīts. Izprotot klientu
@@ -137,7 +141,7 @@ const qualities = [
               <span style="font-size: 18px">{{ quality }}</span>
             </div>
           </div>
-          <Button label="Pieteikties" style="margin-top: 20px" />
+          <Button label="Pieteikties" style="margin-top: 20px" @click="popupOpen = true"/>
         </div>
       </div>
     </section>
@@ -269,6 +273,20 @@ a {
   width: 100%;
 }
 
+.service-title{
+  margin: 20px 0;
+}
+
+.service-description{
+  margin-bottom: 20px;
+}
+
+.single-quality {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loan-types {
   background-color: #f1f1ff;
 
@@ -292,10 +310,15 @@ a {
   text-align: left;
   gap: 10px;
   cursor: grab;
+  width: 350px;
 }
 
 .slide-description{
   font-size: 14px;
+}
+
+.faq-title{
+  margin: 20px 0;
 }
 
 @media only screen and (min-width: 768px) {
@@ -358,9 +381,10 @@ a {
   .service-text {
     text-align: left;
     margin-left: 60px;
-    h2 {
-      font-size: 50px;
-    }
+  }
+
+  .service-title {
+    font-size: 50px;
   }
 
   .service-description {
@@ -375,8 +399,7 @@ a {
   }
 
   .single-quality {
-    display: flex;
-    align-items: center;
+    justify-content: left;
   }
 
   .loan-types-title{
@@ -406,6 +429,7 @@ a {
 
   .carousel-slide {
     height: 350px;
+    width: auto;
     gap: 20px;
 
     a {

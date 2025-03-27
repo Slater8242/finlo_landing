@@ -3,5 +3,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['nuxt-svgo', '@nuxt/icon', 'nuxt-swiper'],
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  app:{
+    head:{
+      title:"Finlo"
+    }
+  }
 })

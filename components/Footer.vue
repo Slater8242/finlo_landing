@@ -54,7 +54,7 @@ const services = [
 
 <style scoped>
 footer {
-  background-color: #3A405A;
+  background-color: #3f2a87;
   color: white;
   padding: 20px 0;
 }

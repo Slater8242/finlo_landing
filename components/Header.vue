@@ -15,7 +15,7 @@ const services = [
   {title: "Auto līzings", icon:"uil:car-sideview"},
 ]
 
-const links = [
+const socialLinks = [
   {name: "facebook", icon:"uil:facebook", link: "https://www.facebook.com/finlo.lv"},
   {name: "linkedin", icon:"uil:linkedin", link: "https://www.linkedin.com/company/finlolv"},
 ]
@@ -52,7 +52,7 @@ const links = [
           </NuxtLink>
           <div class="socials">
             <span>Sociālie tīkli</span>
-            <NuxtLink to="#" v-for="link in links" :key="link.name">
+            <NuxtLink :to="link.link" target="_blank" v-for="link in socialLinks" :key="link.name">
               <Icon :name="link.icon" style="color: white; font-size: 25px;"/>
             </NuxtLink>
           </div>

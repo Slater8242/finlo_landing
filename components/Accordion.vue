@@ -30,7 +30,6 @@ const toggleItem = (index) => {
       >
         {{ item.title }}
         <Icon :name="activeIndex === index ? 'uil:minus-circle': 'uil:plus-circle'" class="accordion-icon"/>
-        <!-- <span class="accordion-icon">{{ activeIndex === index ? '−' : '+' }}</span> -->
       </button>
       <Transition name="accordion">
         <div 
