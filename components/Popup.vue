@@ -43,16 +43,26 @@ function closePopup() {
   padding: 30px 52px 42px 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  height: 95%;
+  overflow-y: auto;
 }
 
 .close-button {
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 32px;
   background: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
   color: #000;
+}
+
+@media only screen and (min-width: 1024px) {
+.popup-content{
+  width: auto;
+  height: auto;
+}
 }
 </style>

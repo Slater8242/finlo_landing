@@ -122,7 +122,7 @@ const qualities = [
 
     <section class="service">
       <div class="container">
-        <img src="/assets/images/03.jpg" alt="image" class="service-image"/>
+        <img src="/assets/images/ai-image.jpg" alt="image" class="service-image"/>
         <div class="service-text">
           <h2 class="service-title">Personiska pieeja un profesionāla apkalpošana</h2>
           <p class="service-description" style="">
@@ -271,6 +271,7 @@ a {
 
 .service-image{
   width: 100%;
+  border-radius: 20px;
 }
 
 .service-title{
@@ -310,7 +311,7 @@ a {
   text-align: left;
   gap: 10px;
   cursor: grab;
-  width: 350px;
+  height: 240px;
 }
 
 .slide-description{
