@@ -122,7 +122,7 @@ const qualities = [
 
     <section class="service">
       <div class="container">
-        <img src="/assets/images/ai-image.jpg" alt="image" class="service-image"/>
+        <img src="/assets/images/hero-image.jpg" alt="image" class="service-image"/>
         <div class="service-text">
           <h2 class="service-title">Personiska pieeja un profesionāla apkalpošana</h2>
           <p class="service-description" style="">
@@ -164,7 +164,7 @@ const qualities = [
       </div>
     </section>
 
-    <section class="faq">
+    <section class="faq" id="faq">
       <div class="container">
         <h1 class="faq-title">Biežāk uzdotie jautājumi</h1>
         <Accordion :items="accordionItems" />
@@ -318,8 +318,18 @@ a {
   font-size: 14px;
 }
 
+.faq{
+  scroll-margin-top: 100px;
+}
+
 .faq-title{
   margin: 20px 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media only screen and (min-width: 768px) {

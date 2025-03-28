@@ -60,16 +60,16 @@ const socialLinks = [
       </div>
     </div>
     <div class="navbar container">
-      <a href="#">
+      <NuxtLink to="/">
         <SvgoLogo class="logo"/>
-      </a>
+      </NuxtLink>
       <Icon class="menu-button" name="ic:round-menu" style="width: 35px; height: 35px;" @click="menu = !menu"/>
       <nav :class="[menu ? 'menu-open' : 'menu-closed', 'nav']">
         <Icon name="ri:close-large-line"  class="close-button" @click="menu=!menu"/>
         <ul class="nav-list">
-          <li><a href="#about" class="nav-item">Sākums</a></li>
+          <li><NuxtLink to="/" class="nav-item" @click="menu = false">Sākums</NuxtLink></li>
           <li class="services nav-item" @click="toggleShow">
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; justify-content: center;">
               <span>Pakalpojumi</span>
               <Icon v-if="!showDropdown" name="ic:baseline-keyboard-arrow-down"/>
               <Icon v-if="showDropdown" name="ic:baseline-keyboard-arrow-up"/>
@@ -83,9 +83,9 @@ const socialLinks = [
               </li>
             </ul>
           </li>
-          <li><NuxtLink to="#features" class="nav-item">Kā pieteikties?</NuxtLink></li>
-          <li><NuxtLink to="#why-us" class="nav-item">Kāpēc mēs?</NuxtLink></li>
-          <li><NuxtLink to="#faq" class="nav-item">BUJ</NuxtLink></li>
+          <li><NuxtLink to="#features" class="nav-item" @click="menu = false">Kā pieteikties?</NuxtLink></li>
+          <li><NuxtLink to="#why-us" class="nav-item" @click="menu = false">Kāpēc mēs?</NuxtLink></li>
+          <li><NuxtLink to="#faq" class="nav-item" @click="menu = false">BUJ</NuxtLink></li>
         </ul>
       </nav>
       <div class="login-lang">

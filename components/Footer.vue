@@ -45,6 +45,15 @@ const services = [
             <li>
               <NuxtLink to="#">BUJ</NuxtLink>
             </li>
+            <li>
+              <NuxtLink to="/privacy-policy">Privātuma politika</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/terms-of-use">Lietošanas noteikumi</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/DI_MGMT_Licence_ar_jauno_SIA_nosaukumu.pdf" target="_blank" external>Licence Nr.2016-026</NuxtLink>
+            </li>
           </ul>
         </div>
       </div>

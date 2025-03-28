@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   show: {
     type: Boolean,
     required: true,
@@ -11,6 +11,16 @@ const emit = defineEmits(["close"]);
 function closePopup() {
   emit("close");
 }
+
+onMounted(() => {
+  watchEffect(() => {
+    if (props.show) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  });
+});
 </script>
 
 <template>
@@ -58,11 +68,16 @@ function closePopup() {
   cursor: pointer;
   color: #000;
 }
+:global(.no-scroll) {
+  overflow: hidden;
+  height: 100vh;
+}
 
 @media only screen and (min-width: 1024px) {
 .popup-content{
   width: auto;
   height: auto;
+  max-height: 80vh;
 }
 }
 </style>
