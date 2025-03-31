@@ -110,7 +110,7 @@ const qualities = [
 
     <section class="features">
       <div class="container">
-        <h2>Our Features</h2>
+        <h1 class="title">Par mums</h1>
         <div class="feature-grid">
           <div class="feature-card" v-for="feature in features">
             <Icon :name="feature.icon" class="icon" />
@@ -124,7 +124,7 @@ const qualities = [
       <div class="container">
         <img src="/assets/images/hero-image.jpg" alt="image" class="service-image"/>
         <div class="service-text">
-          <h2 class="service-title">Personiska pieeja un profesionāla apkalpošana</h2>
+          <h2 class="title">Personiska pieeja un profesionāla apkalpošana</h2>
           <p class="service-description" style="">
             Finlo darbības virziens ir aizdevumu izsniegšana ar nekustamā
             īpašuma nodrošinājumu jeb hipotekārais kredīts. Izprotot klientu
@@ -148,7 +148,7 @@ const qualities = [
 
     <section class="loan-types">
       <div class="container">
-        <h1 class="loan-types-title">
+        <h1 class="title">
           Mūsu pakalpojumu klāsts
         </h1>
         <Carousel>
@@ -166,7 +166,7 @@ const qualities = [
 
     <section class="faq" id="faq">
       <div class="container">
-        <h1 class="faq-title">Biežāk uzdotie jautājumi</h1>
+        <h1 class="title">Biežāk uzdotie jautājumi</h1>
         <Accordion :items="accordionItems" />
       </div>
     </section>
@@ -178,7 +178,6 @@ const qualities = [
       </div>
     </section>
   </div>
-  <FloatingWhatsapp />
 </template>
 
 <style scoped>
@@ -213,7 +212,7 @@ a {
   position: relative;
   padding: 35px 15px;
   background-color: #6a47ed;
-  background-image: url("@/assets/images/transparnt_bg.png");
+  background-image: url("@/assets/images/transparent_bg.png");
   background-size: cover;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -274,7 +273,7 @@ a {
   border-radius: 20px;
 }
 
-.service-title{
+.title{
   margin: 20px 0;
 }
 
@@ -290,17 +289,13 @@ a {
 
 .loan-types {
   background-color: #f1f1ff;
-
-  h1{
-    font-size: 30px;
-  }
 }
 
 .icon {
-    width: 40px;
-    height: 40px;
-    color: #6a47ed;
-  }
+  width: 40px;
+  height: 40px;
+  color: #6a47ed;
+}
 
 .carousel-slide{
   border: 1px solid #625efd;
@@ -320,10 +315,6 @@ a {
 
 .faq{
   scroll-margin-top: 100px;
-}
-
-.faq-title{
-  margin: 20px 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -394,8 +385,8 @@ input::-webkit-inner-spin-button {
     margin-left: 60px;
   }
 
-  .service-title {
-    font-size: 50px;
+  .title {
+    font-size: 70px;
   }
 
   .service-description {
@@ -413,19 +404,9 @@ input::-webkit-inner-spin-button {
     justify-content: left;
   }
 
-  .loan-types-title{
-    font-size: 50px; 
-    margin-bottom: 50px
-  }
-
   .icon {
     width: 60px;
     height: 60px;
-  }
-
-  .faq-title{
-    font-size: 50px;
-    margin-bottom: 50px
   }
 
   .contact {

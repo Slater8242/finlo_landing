@@ -6,6 +6,7 @@
   <div>
     <Header/>
     <slot/>
+    <FloatingWhatsapp />
     <Footer/>
   </div>
 </template>

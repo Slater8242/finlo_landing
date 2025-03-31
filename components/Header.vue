@@ -7,12 +7,11 @@ const toggleShow = ()=>{
 }
 
 const services = [
-  {title: "Hipotekārais kredīts", icon:"uil:home-alt"},
-  {title: "Biznesa attīstībai", icon:"uil:suitcase"},
-  {title: "Ēku būvniecībai", icon:"uil:constructor"},
-  {title: "Kredītu apvienošana", icon:"fa6-solid:arrows-to-circle"},
-  {title: "Zemniekiem", icon:"iconoir:farm"},
-  {title: "Auto līzings", icon:"uil:car-sideview"},
+  {title: "Hipotekārais kredīts", icon:"uil:home-alt", link:"mortgage-loan"},
+  {title: "Biznesa attīstībai", icon:"uil:suitcase", link:"business-loan"},
+  {title: "Ēku būvniecībai", icon:"uil:constructor", link:"construction-loan"},
+  {title: "Kredītu apvienošana", icon:"fa6-solid:arrows-to-circle", link:"loan-consolidation"},
+  {title: "Zemniekiem", icon:"iconoir:farm", link:"farm-loan"},
 ]
 
 const socialLinks = [
@@ -76,7 +75,7 @@ const socialLinks = [
             </div>
             <ul v-if="showDropdown" class="service-list">
               <li v-for="service in services" :key="service.title">
-                <NuxtLink :to="service.title" class="service-item">
+                <NuxtLink :to="`/services/${service.link}`" class="service-item">
                   <Icon :name="service.icon" style="width: 25px; height: 25px;"/>
                   {{ service.title }}
                 </NuxtLink>
@@ -89,7 +88,6 @@ const socialLinks = [
         </ul>
       </nav>
       <div class="login-lang">
-        <Button label="Login"/>
         <Button label="LV"/>
       </div>
     </div>

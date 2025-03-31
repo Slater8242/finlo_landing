@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const isTerritory = ref(false);
 const realEstateOptionValue = ref("apartment");
-const newsChecbox = ref(false);
-const termsCheckbox = ref(false);
+const newsChecbox = ref(true);
+const termsCheckbox = ref(true);
 const formData = ref<Record<string, string | number>>({
   name: "",
   lastname: "",
@@ -43,7 +43,6 @@ const loanPurposeOptions =[
   "Zemniekiem",
   "Ēku būvniecībai",
   "Hipotekārais kredīts",
-  "Auto līzings",
 ]
 
 const realEstateOptions = [
@@ -84,7 +83,7 @@ const realEstateOptions = [
       <input v-if="!isTerritory" type="text" placeholder="Pilsēta*" class="input-styling" v-model="formData.city">
       <input v-if="!isTerritory" type="text" placeholder="Iela / Nr*" class="input-styling" v-model="formData.street">
       <input v-if="isTerritory" type="text" placeholder="Rajons" class="input-styling is-territory" v-model="formData.district">
-      <input v-if="isTerritory" type="text" placeholder="Kadastra numurs" class="input-styling is-territory" v-model="formData.cadastralNumber">
+      <input v-if="isTerritory" type="text" placeholder="Kadastra numurs vai zemes nosaukums" class="input-styling is-territory" v-model="formData.cadastralNumber">
     </div>
 
     <Checkbox v-model="newsChecbox" label="Piekrītu saņemt jaunumus no FINLO savā e-pastā."/>
@@ -114,6 +113,7 @@ form{
 
 .input-styling{
   padding: 10px;
+  height: 25px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
 }
@@ -125,6 +125,10 @@ form{
 
   .borrower-info input:last-child, .real-estate-info select, .is-territory{
     grid-column: span 2;
+  }
+
+  .input-styling{
+    height: 40px;
   }
 }
 

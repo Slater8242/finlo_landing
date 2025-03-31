@@ -45,6 +45,7 @@ const emit = defineEmits(['click'])
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 113px;
 }
 
 .style-1:hover {

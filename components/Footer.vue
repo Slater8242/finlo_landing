@@ -1,11 +1,10 @@
 <script setup lang="ts">
 const services = [
-  {title: "Hipotekārais kredīts", icon:"uil:home-alt"},
-  {title: "Biznesa attīstībai", icon:"uil:suitcase"},
-  {title: "Ēku būvniecībai", icon:"uil:constructor"},
-  {title: "Kredītu apvienošana", icon:"fa6-solid:arrows-to-circle"},
-  {title: "Zemniekiem", icon:"iconoir:farm"},
-  {title: "Auto līzings", icon:"uil:car-sideview"},
+  {title: "Hipotekārais kredīts", icon:"uil:home-alt", link:"mortgage-loan"},
+  {title: "Biznesa attīstībai", icon:"uil:suitcase", link:"business-loan"},
+  {title: "Ēku būvniecībai", icon:"uil:constructor", link:"construction-loan"},
+  {title: "Kredītu apvienošana", icon:"fa6-solid:arrows-to-circle", link:"loan-consolidation"},
+  {title: "Zemniekiem", icon:"iconoir:farm", link:"farm-loan"},
 ]
 </script>
 
@@ -29,7 +28,7 @@ const services = [
           <span>Pakalpojumi</span>
           <ul class="list-style service-list">
             <li v-for="service in services" :key="service.title" class="service-item">
-              <NuxtLink :to="service.title">{{service.title}}</NuxtLink>
+              <NuxtLink :to="`/services/${service.link}`">{{service.title}}</NuxtLink>
             </li>
           </ul>
         </div>
