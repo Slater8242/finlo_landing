@@ -113,7 +113,7 @@ const accordionItems = [
 
   <section class="service-description">
     <div class="container description">
-      <p class="description-text">
+      <p class="description-text2">
         {{ serviceContent.description2 }}
       </p>
     </div>
@@ -173,6 +173,10 @@ section {
 
 .description-text {
   font-size: 20px;
+}
+
+.description-text2 {
+  font-size: 15px;
 }
 
 .features {
@@ -249,7 +253,7 @@ section {
 .contact {
   text-align: center;
   color: #fff;
-  font-size: 30px;
+  font-size: 21px;
   background-color: #625efd;
   background-image: url("/assets/images/cells.png");
   background-repeat: no-repeat;
@@ -289,12 +293,17 @@ section {
   }
 
   .service-title .title {
-    padding: 150px 0;
+    margin: 0;
   }
 
   .description-text {
     padding: 75px 0;
     font-size: 30px;
+  }
+
+  .description-text2{
+    padding: 75px 0;
+    font-size: 20px;
   }
 
   .features::before {
@@ -341,7 +350,7 @@ section {
     height: 400px;
     display: flex;
     align-items: center;
-
+    font-size: 30px;
     h2 {
       font-size: 86px;
     }

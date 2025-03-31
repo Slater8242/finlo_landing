@@ -386,7 +386,7 @@ input::-webkit-inner-spin-button {
   }
 
   .title {
-    font-size: 70px;
+    font-size: 50px;
   }
 
   .service-description {
