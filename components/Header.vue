@@ -74,7 +74,7 @@ const socialLinks = [
               <Icon v-if="showDropdown" name="ic:baseline-keyboard-arrow-up"/>
             </div>
             <ul v-if="showDropdown" class="service-list">
-              <li v-for="service in services" :key="service.title">
+              <li v-for="service in services" :key="service.title" @click="menu=!menu">
                 <NuxtLink :to="`/services/${service.link}`" class="service-item">
                   <Icon :name="service.icon" style="width: 25px; height: 25px;"/>
                   {{ service.title }}
@@ -148,6 +148,13 @@ a{
   text-align: center;
 }
 
+.services{
+  position: relative;
+  span{
+    cursor: pointer;
+  }
+}
+
 .close-button{
   position: absolute;
   top: 30px;
@@ -170,13 +177,17 @@ a{
   transition: 0.3s;
 }
 
+.nav-item:hover {
+  color: #000;
+}
+
 .service-item{
   display: flex;
   align-items: center;
   gap: 15px;
   padding: 5px 10px;
   border-radius: 10px;
-  color: #000;
+  color: #fff;
   transition: 0.3s;
 }
 
@@ -184,8 +195,8 @@ a{
   background-color: rgba(0, 0, 0, .1);
 }
 
-.nav-item:hover {
-  color: #000;
+.menu-button, .close-button{
+  cursor: pointer;
 }
 
 :where(.i-uil\:facebook):hover{
@@ -253,6 +264,10 @@ a{
     margin: 0;
   }
 
+  .service-item{
+    color: #000;
+  }
+
   .menu-button, .close-button{
     display: none;
   }
@@ -260,13 +275,6 @@ a{
   .logo{
     width: 164px;
     height: 45px;
-  }
-
-  .services{
-    position: relative;
-    span{
-      cursor: pointer;
-    }
   }
 
   .service-list{

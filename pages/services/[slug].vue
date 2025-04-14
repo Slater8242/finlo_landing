@@ -1,6 +1,8 @@
 <script setup>
 import {useRoute} from 'vue-router'
 
+const popupOpen = ref(false);
+
 // Access the dynamic parameter (slug) from the route
 const route = useRoute()
 const slug = route.params.slug
@@ -77,7 +79,10 @@ const accordionItems = [
       <p class="description-text">
         {{ serviceContent.description1 }}
       </p>
-      <Button label="Pieteikties"/>
+      <Button label="Pieteikties" @click="popupOpen = true" />
+      <Popup :show="popupOpen" @close="popupOpen = false">
+        <ApplyForm />
+      </Popup>
     </div>
   </section>
 
@@ -136,16 +141,17 @@ const accordionItems = [
 
 <style scoped>
 section {
-  padding: 100px 0;
+  padding: 30px 0;
 }
 
 .service-title {
   background-color: #f1f0ff;
   background-image: url("@/assets/images/transparent_bg.png");
   background-size: cover;
+  background-repeat: no-repeat;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 150px 0;
+  padding: 50px 0;
 }
 
 .service-title .title {
@@ -173,6 +179,7 @@ section {
 
 .description-text {
   font-size: 20px;
+  padding: 30px 0;
 }
 
 .description-text2 {
@@ -273,6 +280,14 @@ section {
 @media only screen and (min-width: 768px) {
   .feature-grid {
     grid-template-columns: auto auto;
+  }
+
+  .service-title {
+    padding: 150px 0;
+  }
+
+  .feature-card:last-child{
+    grid-column: 1 / span 2;
   }
 }
 

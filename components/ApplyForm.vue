@@ -112,7 +112,7 @@ form{
 }
 
 .input-styling{
-  padding: 10px;
+  padding: 0 10px;
   height: 25px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
