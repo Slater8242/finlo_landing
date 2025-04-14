@@ -112,7 +112,7 @@ const accordionItems = [
           <div v-if="index < applySteps.length - 1" class="step-divider"></div>
         </div>
       </div>
-      <Button label="Pieteikties"/>
+      <Button label="Pieteikties" @click="popupOpen = true" />
     </div>
   </section>
 
