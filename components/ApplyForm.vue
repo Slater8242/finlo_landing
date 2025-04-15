@@ -113,9 +113,10 @@ form{
 
 .input-styling{
   padding: 0 10px;
-  height: 25px;
+  height: 40px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
+  font-size: 16px;
 }
 
 @media only screen and (min-width: 1024px) {

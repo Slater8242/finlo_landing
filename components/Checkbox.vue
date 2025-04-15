@@ -28,6 +28,7 @@ const checked = computed({
   align-items: center;
   cursor: pointer;
   user-select: none;
+  text-align:left;
 }
 
 .hidden-checkbox {
@@ -70,6 +71,14 @@ const checked = computed({
 
 .checkbox-label {
   font-size: 14px;
-  color: #333;
+  color: #717882;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .checkbox-label{
+    font-size: 12px;
+    
+  }
 }
 </style>
